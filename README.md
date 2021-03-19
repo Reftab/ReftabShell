@@ -8,6 +8,7 @@ This is a quick and dirty script to interact with the Reftab API via Shell scrip
 ### Download repository
 
 Use the [Reftab API documentation](https://www.reftab.com/api-docs) to find endpoints to access.
+Save your Reftab API keys into the api.conf file.
 
 ### Methods
 The reftab shell script has 4 flags available.
