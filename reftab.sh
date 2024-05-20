@@ -69,7 +69,7 @@ if [ -z "$BODY" ]; then
   CONTENTTYPE=""
 else
   CONTENTHASH=$(printf "%s" "$BODY" | openssl md5)
-  CONTENTHASH=${CONTENTHASH/* }
+  CONTENTHASH=${CONTENTHASH##* }
   CONTENTTYPE="application/json"
 fi
 
@@ -80,7 +80,7 @@ $DATE
 $URL"
 
 TOKEN=$(printf "%s" "$SIGNATURETOSIGN" | openssl dgst -sha256 -hmac "$SECRETKEY")
-TOKEN=${TOKEN/* }
+TOKEN=${TOKEN##* }
 TOKEN=$(printf "%s" "$TOKEN" | openssl base64 -A)
 
 curl "$URL" \
